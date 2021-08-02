@@ -10,6 +10,10 @@ describe BankAccount do
     expect(account.balance).to eq(0)
   end
 
+  it 'initializes with an empty array for tranaction history' do
+    expect(account.transactions).to eq []
+  end
+
   it 'can deposit money into the account' do
     account.deposit(10)
     expect(account.balance).to eq(10)
