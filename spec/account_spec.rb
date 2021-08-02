@@ -46,11 +46,8 @@ describe BankAccount do
   end
 
   it 'should warn the user if their balance goes below zero' do
-    expect { account.withdraw(100) }.to raise_error('Your account is overdrawn')
+    expect { account.withdraw(100) }.to raise_error('Insufficient Funds')
   end
 end
 
-# date || credit || debit || balance
-# 14/01/2012 || || 500.00 || 2500.00
-# 13/01/2012 || 2000.00 || || 3000.00
-# 10/01/2012 || 1000.00 || || 1000.00
+

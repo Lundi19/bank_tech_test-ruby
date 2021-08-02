@@ -15,10 +15,10 @@ class BankAccount
   end
 
   def withdraw(amount)
+    enough_funds?(amount)
     valid_withdrawl?(amount)
     @balance -= amount
     @transactions << withdrawl_entry(amount)
-    negative_balance?
   end
 
   private
@@ -31,10 +31,8 @@ class BankAccount
     raise 'You can only withdraw an amount over 0' if amount <= 0
   end
 
-  def negative_balance?
-   if @balance <= 0 
-     'Your account is now overdrawn' 
-   end
+  def enough_funds?(amount)
+    raise 'Insufficient Funds' if amount > @balance
   end
 
   def date_today
