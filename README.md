@@ -23,8 +23,9 @@ I would like to be able to view my statement
 
 ### BankAccount 
 
--INITIALIZE(initial_deposit)
-transactions array
+-INITIALIZE
+transactions history
+initial balance
 
 -DEPOSIT
 
@@ -33,18 +34,22 @@ transactions array
 
 ### BankStatement
 
-INITIALIZE(transaction)
+INITIALIZE(transaction history)
 
 print
 
 
+require  "./lib/statement.rb"
 
 
+2.7.0 :003 > bank = BankAccount.new
+2.7.0 :003 > bank.deposit(1000)
+2.7.0 :003 > bank.withdraw(200)
+2.7.0 :003 > bank.withdraw(400)
 
 
-
-
-
+2.7.0 :003 > statement = Statement.new(bank.transactions)
+2.7.0 :003 > puts statement.print
 
 
 

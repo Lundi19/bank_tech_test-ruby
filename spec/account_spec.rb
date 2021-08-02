@@ -44,6 +44,10 @@ describe BankAccount do
   it 'withdrawl fails if value is 0' do
     expect { account.withdraw(0) }.to raise_error('You can only withdraw an amount over 0')
   end
+
+  it 'should warn the user if their balance goes below zero' do
+    expect { account.withdraw(100) }.to raise_error('Your account is overdrawn')
+  end
 end
 
 # date || credit || debit || balance
