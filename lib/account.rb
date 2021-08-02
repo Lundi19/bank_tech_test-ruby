@@ -4,11 +4,13 @@ class BankAccount
 
   def initialize
     @balance = 0
-    @transactions = transactions
+    @transactions = []
   end
 
   def deposit(amount)
     @balance += amount
+    date = Time.now.strftime("%d/%m/%Y")
+    @transactions << "#{date} || $#{amount} || || $#{@balance}"
   end
 
   def withdraw(amount)
