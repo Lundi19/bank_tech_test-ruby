@@ -1,5 +1,6 @@
 require 'account'
 require 'date'
+
 describe BankAccount do
 
   it 'can open a new account at $0' do
@@ -20,11 +21,19 @@ describe BankAccount do
     expect(account.balance).to eq(180)
   end
 
-  it 'updates history after depesoit including date' do
+  it 'updates transaction history after depesoit including date' do
     account = BankAccount.new
     account.deposit(200)
     date = Time.now.strftime("%d/%m/%Y")
-    expect(account.transactions).to include("#{date} || $200 || || $200")
+    expect(account.transactions).to include("#{date} || $200.00 || || $200.00")
+  end
+
+  it 'updates transaction history after withdrawl including date' do
+    account = BankAccount.new
+    account.deposit(200)
+    account.withdraw(100)
+    date = Time.now.strftime("%d/%m/%Y")
+    expect(account.transactions).to include("#{date} || || $100.00 || $100.00")
   end
 end
 
