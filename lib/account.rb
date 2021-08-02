@@ -8,21 +8,27 @@ class BankAccount
   end
 
   def deposit(amount)
-    valid_trans?(amount)
+    valid_deposit?(amount)
     @balance += amount
     @transactions << deposit_entry(amount)
   end
 
   def withdraw(amount)
+    valid_withdrawl?(amount)
     @balance -= amount
     @transactions << withdrawl_entry(amount)
   end
 
   private
 
-  def valid_trans?(amount)
+  def valid_deposit?(amount)
     raise 'You can only deposit an amount over 0' if amount <= 0
   end
+
+  def valid_withdrawl?(amount)
+    raise 'You can only withdraw an amount over 0' if amount <= 0
+  end
+
 
   def date_today
     Time.now.strftime('%d/%m/%Y')

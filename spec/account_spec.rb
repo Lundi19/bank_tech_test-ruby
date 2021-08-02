@@ -39,6 +39,10 @@ describe BankAccount do
   it 'deposit fails if value is 0' do
     expect { account.deposit(0) }.to raise_error('You can only deposit an amount over 0')
   end
+ 
+  it 'withdrawl fails if value is 0' do
+    expect { account.withdraw(0) }.to raise_error('You can only withdraw an amount over 0')
+  end
 end
 
 
