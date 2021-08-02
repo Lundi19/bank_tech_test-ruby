@@ -8,6 +8,7 @@ class BankAccount
   end
 
   def deposit(amount)
+    valid_trans?(amount)
     @balance += amount
     date = Time.now.strftime("%d/%m/%Y")
     @transactions << "\n#{date} || $#{amount}.00 || || $#{@balance}.00"
@@ -17,6 +18,12 @@ class BankAccount
     @balance -= amount
     date = Time.now.strftime("%d/%m/%Y")
     @transactions << "\n#{date} || || $#{amount}.00 || $#{@balance}.00"
+  end
+
+  private
+
+  def valid_trans?(amount)
+      raise 'You can only deposit an amount over 0' if amount <= 0
   end
 
 end

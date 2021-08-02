@@ -35,6 +35,11 @@ describe BankAccount do
     date = Time.now.strftime("%d/%m/%Y")
     expect(account.transactions).to include("\n#{date} || || $100.00 || $100.00")
   end
+
+  it 'deposit fails if value is 0' do
+    account = BankAccount.new
+    expect { account.deposit(0) }.to raise_error('You can only deposit an amount over 0')
+  end
 end
 
 
