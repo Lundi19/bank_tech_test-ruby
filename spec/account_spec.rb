@@ -25,7 +25,7 @@ describe BankAccount do
     account = BankAccount.new
     account.deposit(200)
     date = Time.now.strftime("%d/%m/%Y")
-    expect(account.transactions).to include("#{date} || $200.00 || || $200.00")
+    expect(account.transactions).to include("\n#{date} || $200.00 || || $200.00")
   end
 
   it 'updates transaction history after withdrawl including date' do
@@ -33,7 +33,7 @@ describe BankAccount do
     account.deposit(200)
     account.withdraw(100)
     date = Time.now.strftime("%d/%m/%Y")
-    expect(account.transactions).to include("#{date} || || $100.00 || $100.00")
+    expect(account.transactions).to include("\n#{date} || || $100.00 || $100.00")
   end
 end
 

@@ -1,4 +1,4 @@
-require "account"
+require_relative "account"
 
 class Statement
   def initialize(transactions)
@@ -7,7 +7,11 @@ class Statement
     transactions.each{ |item|  @statement_trans << item }
   end
 
+  def statement_title
+    "date || credit || debit || balance"
+  end
+
   def print
-    "date || credit || debit || balance #{@statement_trans}" 
+    "#{statement_title}#{@statement_trans}" 
   end
 end
