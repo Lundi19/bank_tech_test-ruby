@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'account'
 require 'date'
 
 describe BankAccount do
-
   let(:account) { BankAccount.new }
   let(:date) { Time.now.strftime('%d/%m/%Y') }
 
@@ -39,13 +40,11 @@ describe BankAccount do
   it 'deposit fails if value is 0' do
     expect { account.deposit(0) }.to raise_error('You can only deposit an amount over 0')
   end
- 
+
   it 'withdrawl fails if value is 0' do
     expect { account.withdraw(0) }.to raise_error('You can only withdraw an amount over 0')
   end
 end
-
-
 
 # date || credit || debit || balance
 # 14/01/2012 || || 500.00 || 2500.00

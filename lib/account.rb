@@ -1,5 +1,6 @@
-class BankAccount
+# frozen_string_literal: true
 
+class BankAccount
   attr_reader :balance, :transactions
 
   def initialize
@@ -29,7 +30,6 @@ class BankAccount
     raise 'You can only withdraw an amount over 0' if amount <= 0
   end
 
-
   def date_today
     Time.now.strftime('%d/%m/%Y')
   end
@@ -45,5 +45,4 @@ class BankAccount
   def deposit_entry(amount)
     "\n#{date_today} || $#{two_decimals(amount)} || || $#{two_decimals(@balance)}"
   end
-
 end
