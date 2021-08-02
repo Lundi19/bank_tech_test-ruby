@@ -10,12 +10,12 @@ class BankAccount
   def deposit(amount)
     valid_trans?(amount)
     @balance += amount
-    @transactions << "\n#{date_today} || $#{amount}.00 || || $#{@balance}.00"
+    @transactions << "\n#{date_today} || $#{two_decimals(amount)} || || $#{two_decimals(@balance)}"
   end
 
   def withdraw(amount)
     @balance -= amount
-    @transactions << "\n#{date_today} || || $#{amount}.00 || $#{@balance}.00"
+    @transactions << "\n#{date_today} || || $#{two_decimals(amount)} || $#{two_decimals(@balance)}"
   end
 
   private
@@ -27,5 +27,10 @@ class BankAccount
   def date_today
     Time.now.strftime('%d/%m/%Y')
   end
+
+  def two_decimals(amount)
+    ('%.2f' % amount)
+  end
+
 
 end
