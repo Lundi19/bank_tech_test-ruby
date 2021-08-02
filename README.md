@@ -96,10 +96,19 @@ For the tests run Rspec
 ```
 $ rspec
 ```
+
+<img src="./RSPEC.png">
+<img src="./coverage.png">
+
+
+ 
+and for linting
+
 ```
 $ rubocop
 ```
-<img src="./RSPEC.png">
+
+
 
 
 
