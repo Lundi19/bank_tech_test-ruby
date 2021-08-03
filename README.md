@@ -1,3 +1,7 @@
+# Bank Tech Test
+
+Interactive command line banking application. Can create a bank account, deposit funds, withdraw funds and print an account statement.
+
 ## user stories
 
 ```
@@ -35,6 +39,9 @@ As a banking customer,
 So that I am depositing the correct amount 
 I would like to be notified if I try to deposit an amount less than £0
 ```
+## Approach
+
+The way I have approached this task is by declaring user stories and writing 2 classes, described below. I have structured the code this way in order to follw the single resposibility principle and the keep the code from being repeated(DRY)
 
 ## classes and methods
 
